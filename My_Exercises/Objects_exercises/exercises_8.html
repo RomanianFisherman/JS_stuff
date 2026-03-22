@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Exercises 8 </title>
+    </head>
+    <body>
+        <script>
+            const product1 = {
+                name: 'basketball',
+                price: 2095,
+                'delivery-time': '3 days'
+            };
+
+            const prod2 = {
+                name: 'Condoms',
+                price: 1000
+            };
+            function comparePrice(prod2, product1) {
+                if (product1.price < prod2.price) {return product1;}
+                else { return prod2;}
+            }
+            
+            function isSameProduct(product1, prod2) {
+                if (product1.name === prod2.name && product1.price === prod2.price) {
+                    return true;
+                } else { return false;}
+
+            }
+
+            console.log(product1);
+            product1.price += 500; //! CAUTION ! to now write =+ otherwise it will replace value
+            console.log(product1);
+            console.log(isSameProduct(product1, prod2));
+
+            const str1 = "Pippo Baudo";
+            console.log(str1.toLowerCase());
+
+        </script>
+    </body>
+</html>
