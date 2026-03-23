@@ -5,6 +5,7 @@
     <title>DOM Projects</title>
   </head>
   <body>
+    
     <p> Youtube Subscribe Button </p>
     <button onclick="
         Subscribe();
@@ -18,11 +19,23 @@
 
     <button onclick="
         calculateTotal();
-    ">Calculate</button>
+        ">Calculate</button>
 
     <p class="js-total-cost"> </p>
 
+    <input placeholder="Type Something" class="js-some-text" onkeyup="
+        console.log('typing...');
+        handleTextKeyUp(event);
+    ">
+
+    <p class="js-message"> </p>
+
     <script>
+        function handleTextKeyUp(event) {
+            const InputElement = document.querySelector('.js-some-text');
+            document.querySelector('.js-message').innerHTML = InputElement.value;
+        }
+
         function handleCostKeyDown(event) {
             console.log(event.key);
             if (event.key === 'Enter') {
@@ -33,12 +46,13 @@
         function calculateTotal() {
             const IElem = document.querySelector('.js-cost-input');
             let cost = Number(IElem.value);
+            
 
             if (cost < 40) {
                 cost += 10;
             }
             
-            document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+            document.querySelector('.js-total-cost').innerHTML = `$${Math.round(cost * 100) / 100 }`;
         }
 
         function Subscribe() {
