@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <script>
+        const nums = [10,20,30];
+        const greetings = ['hi', 'Ciao', 'Salut'];
+        nums[2] = 99;
+        console.log(nums);
+
+        function getLastValue(array) { 
+            // otherwise:
+            // const lastIndex = array.length - 1;
+            return array[array.length-1];
+        }
+        console.log(getLastValue(greetings));
+
+        function arraySwap(arr) {
+            first_Item = arr[0];
+            last_Item = arr[arr.length-1];
+
+            arr[0] = last_Item;
+            arr[arr.length-1] = first_Item;
+            return arr;
+        }
+        console.log(arraySwap(greetings));
+        
+        for (let i = 0; i<= 10; i+=2) {
+            console.log(i);
+        }
+
+        function addOne(arr) {
+            for (let i = 0; i<arr.length;i++) {
+                arr[i] += 1;
+
+            }
+            return arr;
+        }
+
+        console.log(addOne(nums));
+
+        function addNum(arr, num) {
+            for (let i =0; i<arr.length;i++) {
+                arr[i] += num;
+            }
+            return arr;
+        }
+        console.log(addNum(nums, 4));
+
+        //handling also cases with null values and min = max
+        const tanti = [-2, 3, -5, 7, 10], vuoto = [], unico = [2];
+        
+        function minMax(nums) {
+            const result = {
+                min: nums[0],
+                max: nums[0]
+            };
+            if (nums.length === 1) {
+                result.min = nums[0];
+                result.max = nums[0];
+            }
+
+            for (let i = 0; i<nums.length;i++) {
+                const value = nums[i];
+                
+                if (value < result.min) { result.min = value;}
+
+                if (value > result.max) { result.max = value;}
+
+                if (value === null) {
+                    result.min = null;
+                    result.max = null;
+                }
+                
+            }
+            
+            return result;
+        }
+
+        console.log(minMax(tanti));
+        console.log(minMax(vuoto));
+        console.log(minMax(unico));
+
+        function countWords(words) {
+            const result = {}
+            for (let i = 0; i<words.length;i++) {
+                const word = words[i];
+
+                // result[word] adds/accesses a property using whatever is
+                // saved inside the 'word' variable.
+                if (!result[word]) {
+                    result[word] = 1;
+                } else { result[word]++;}
+            }
+            return result;
+        }
+
+        console.log(countWords(['apple', 'grape', 'apple', 'apple']));
+
+    </script>
+  </body>
+</html>
