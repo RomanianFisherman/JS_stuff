@@ -1,4 +1,4 @@
-const todoList = [{
+const todoList = [{ // array of objects
   name: 'make dinner',
   dueDate: '2022-12-22'
 }, {
@@ -9,7 +9,7 @@ const todoList = [{
 renderTodoList();
 
 function renderTodoList() {
-  let todoListHTML = '';
+  let todoListHTML = ''; //empty string
 
   for (let i = 0; i < todoList.length; i++) {
     const todoObject = todoList[i];
