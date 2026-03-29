@@ -132,6 +132,32 @@
         
         FizzBuzz();
 
+        function findIndex(array, word) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === word) {
+            return i;
+          }
+        }
+
+        return -1;
+      }
+
+        function unique(array) {
+            const res = [];
+            for (let x = 0;x<array.length;x++) {
+                const element = array[x];
+                
+                if (findIndex(res, element) === -1) {
+                    res.push(element);
+                }
+
+            }
+            return res;
+        }
+
+        console.log(unique(['red', 'green', 'green', 'red']));
+        findIndex(greetings, 'Salut');
+
     </script>
   </body>
 </html>
