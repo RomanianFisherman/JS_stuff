@@ -17,6 +17,32 @@ if (!score) {
 }
 */
 
+document.querySelector('.js-rock-button')
+    .addEventListener('click', () => {
+        playGame('rock');
+    });
+
+document.querySelector('.js-paper-button')
+    .addEventListener('click', () => {
+        playGame('paper');
+    });
+
+document.querySelector('.js-scissors-button')
+    .addEventListener('click', () => {
+        playGame('scissors');
+    });
+
+document.body.addEventListener('keydown', (event) => {
+    console.log(event.key);
+    if (event.key === 'r') {
+        playGame('rock');
+    } else if (event.key === 'p') {
+        playGame('paper');
+    } else if (event.key === 's') {
+        playGame('scissors');
+    }
+});
+
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
 
@@ -64,10 +90,11 @@ function playGame(playerMove) {
 
   document.querySelector('.js-result').innerHTML = result;
 
-  document.querySelector('.js-moves').innerHTML = `You
-<img src="images/${playerMove}-emoji.png" class="move-icon">
-<img src="images/${computerMove}-emoji.png" class="move-icon">
-Computer`;
+  document.querySelector('.js-moves').innerHTML = `You 
+  <img src="emojs/${playerMove}-emoji.png" class="move-icon">
+
+<img src="emojs/${computerMove}-emoji.png" class="move-icon">
+Computer `;
 }
 
 function updateScoreElement() {
