@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,13 +8,38 @@
   <body>
     <button onclick="
         clicked(); 
-    ">
+    " id="click" class="Start-button">
         Start
     </button>
 
+    <div>
+        <button onclick="
+            added();   
+        ">
+            Add to cart
+        </button>
+    </div>
+
     <script>
         function clicked() {
-            
+            const clicked_button_during = document.querySelector('.Start-button');
+            clicked_button_during.innerHTML = "Loading...";
+            //another WAY of doing it with the queryselector
+            //const button = document.querySelector('.js-button');
+            const clicked_button_after = document.getElementById("click");
+            setTimeout(function() {
+                clicked_button_after.innerHTML = "Finished!";
+            }, 1000);
+        }
+
+        //also here it could be used queryselector because this way we're going to append everytime a new paragraph on each row
+        function added() {
+            const messageElement = document.createElement("p");
+            messageElement.innerHTML = "Added";
+            document.body.appendChild(messageElement);
+            setTimeout(function() {
+                messageElement.innerHTML = '';
+            }, 2000);
         }
     </script>
   </body>
